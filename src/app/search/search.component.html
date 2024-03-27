@@ -7,11 +7,11 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h4 class="card-title"><b>{{ book.volumeInfo.title }}</b></h4>
-            <h5 class="card-text">{{ book.volumeInfo.authors.join(', ') }}</h5>
-            <p class="card-text"><small class="text-muted">{{ truncateDescription(book.volumeInfo.description) }}</small></p> <!-- Call truncateDescription method -->
-            <button type="button" class="btn btn-primary btn-details">Book Details</button>
+            <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+            <p class="card-text">{{ truncateDescription(book.volumeInfo.description) }}</p>
+            <p class="card-text"><small class="text-muted">{{ book.volumeInfo.authors.join(', ') }}</small></p>
           </div>
+          <button type="button" class="btn btn-primary btn-details">Book Details</button> 
         </div>
       </div>
     </div>

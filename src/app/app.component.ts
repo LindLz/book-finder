@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'book-finder';
+  searchQuery: string = '';
+  title: any;
+
+  constructor(private router: Router) {}
+
+  onSearch(event: Event) {
+    event.preventDefault();
+    if (this.searchQuery.trim() !== '') {
+      this.router.navigate(['/search'], { queryParams: { q: this.searchQuery } });
+    }
+  }
 }
