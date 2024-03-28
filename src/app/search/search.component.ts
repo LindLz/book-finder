@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   searchQuery: string = '';
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private bookService: BookService
   ) { }
@@ -28,12 +29,17 @@ export class SearchComponent implements OnInit {
       this.books = data.items;
     });
   }
+
   truncateDescription(description: string): string {
-    const maxLength = 150;
+    const maxLength = 130;
     if (description.length <= maxLength) {
       return description;
     } else {
       return description.substr(0, maxLength) + '...';
     }
+  }
+
+  navigateToDetail(bookId: string): void {
+    this.router.navigate(['/book-details', bookId]);
   }
 }

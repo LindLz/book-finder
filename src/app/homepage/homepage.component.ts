@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { BookService } from '../services/book.service';
 export class HomepageComponent implements OnInit {
   books: any[] = [];
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadBooks();
@@ -29,5 +30,8 @@ export class HomepageComponent implements OnInit {
       return description.substr(0, maxLength) + '...';
     }
   }
-  
+
+  navigateToDetail(bookId: string): void {
+    this.router.navigate(['/book-details', bookId]);
+  }
 }
