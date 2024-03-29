@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -9,17 +9,33 @@ import { BookService } from '../services/book.service';
 })
 export class HomepageComponent implements OnInit {
   books: any[] = [];
+  filteredBooks: any[] = [];
+  searchQuery: string = '';
 
-  constructor(private bookService: BookService, private router: Router) { }
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.loadBooks();
+    this.route.queryParams.subscribe(params => {
+      this.searchQuery = params['q'] || '';
+      this.loadBooks();
+    });
   }
 
   loadBooks(): void {
-    this.bookService.searchBooks('').subscribe((data: any) => { 
+    this.bookService.searchBooks(this.searchQuery).subscribe((data: any) => { 
       this.books = data.items;
+      this.filteredBooks = this.books;
     });
+  }
+
+  onSearch(event: Event) {
+    event.preventDefault();
+    this.router.navigate([''], { queryParams: { q: this.searchQuery } });
+   
   }
 
   truncateDescription(description: string): string {

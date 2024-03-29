@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { BookService } from './services/book.service';
-import { SearchComponent } from './search/search.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { RouterModule } from '@angular/router';
 
@@ -14,7 +13,6 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     HomepageComponent,
-    SearchComponent,
     BookDetailsComponent
   ],
   imports: [
