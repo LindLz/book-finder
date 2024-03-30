@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
+import { HomepageComponent } from './books/components/homepage/homepage.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'homepage' },
   { path: '', component: HomepageComponent },
-  { path: 'book-details/:id', component: BookDetailsComponent }
+  { path: '', loadChildren: () => import('./books/books.module').then(m => m.BooksModule) },
+
 ];
 
 @NgModule({

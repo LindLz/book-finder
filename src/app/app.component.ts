@@ -8,13 +8,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   searchQuery: string = '';
+  title: any;
 
   constructor(private router: Router) {}
 
-  onSearch(event: Event) {
-    event.preventDefault();
-    if (this.searchQuery.trim() !== '') {
-      this.router.navigate([''], { queryParams: { q: this.searchQuery } });
-    }
-  }
+
 }
