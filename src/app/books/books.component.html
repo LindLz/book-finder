@@ -5,11 +5,11 @@
       <div class="row">
         <div class="col">
           <form class="form-inline my-2 my-lg-0" (submit)="onSearch($event)">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Books" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
           </form>
         </div>
         <div class="col-auto">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="onSearch($event)">Search</button>
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="onSearch($event)">Search</button>
         </div>
       </div>
     </div>

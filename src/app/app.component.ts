@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  searchQuery: string = '';
-  title: any;
 
   constructor(private router: Router) {}
 

@@ -8,3 +8,11 @@
     margin-left: auto !important;
   }
 }
+@media (min-width: 120px) and (max-width: 420px) {
+  .navbar-brand {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,19 +1,18 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-lg-4">
-      <div class="card">
-        <img src="{{ bookDetails?.imageLinks?.thumbnail }}" class="card-img-top" alt="Book Cover">
+    <div class="col-lg-2 col-md-3 col-sm-6"> 
+      <div class="card img-wrapper">
+        <img src="{{ bookDetails?.imageLinks?.thumbnail }}" class="card-img-top responsive-image" alt="Book Cover">
       </div>
     </div>
-    <div class="col-lg-8">
-      <div class="card  card1">
+    <div class="col-lg-10 col-md-9 col-sm-6"> 
+      <div class="card card1">
         <div class="card-body">
-          <h5 class="card-title">{{ bookDetails?.title }}</h5>
-          <p class="card-text">Author: {{ bookDetails?.authors?.join(', ') }}</p>
-          <P class="card-text">Published Date: {{ bookDetails?.publishedDate }} </P>
-          <p class="card-text">Details: {{ bookDetails?.description }}</p>
-          <!-- Button to go back -->
-          <button class="btn btn-secondary" (click)="goBack()">Go Back</button>
+          <h4 class="card-title">{{ bookDetails?.title }}</h4>
+          <h5 class="card-text">Author: {{ bookDetails?.authors?.join(', ') }}</h5>
+          <p class="card-text">Published Date: {{ bookDetails?.publishedDate }}  </p>
+          <p class="card-text"><b>Details:</b> {{ bookDetails?.description }}</p>
+          <button class="btn btn-primary" (click)="goBack()">Go Back</button>
         </div>
       </div>
     </div>

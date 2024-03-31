@@ -38,7 +38,7 @@ export class HomepageComponent implements OnInit {
    
   }
 
-  truncateDescription(description: string): string {
+  shortenDescription(description: string): string {
     const maxLength = 150;
     if (description.length <= maxLength) {
       return description;

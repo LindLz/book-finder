@@ -12,8 +12,8 @@ export class BookService {
   searchBooks(query: string): Observable<any> {
     const defaultQuery = 'james bond';
     const apiUrl = query.trim() !== '' ?
-      `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}+intitle:${encodeURIComponent(query)}&fields=items(id,volumeInfo(title,authors,description,imageLinks,publishedDate))` :
-      `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(defaultQuery)}&maxResults0=1&fields=items(id,volumeInfo(title,authors,description,imageLinks,publishedDate))`;
+    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}+intitle:${encodeURIComponent(query)}&maxResults=10&fields=items(id,volumeInfo(title,authors,description,imageLinks,publishedDate))` :
+    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(defaultQuery)}&maxResults=10&fields=items(id,volumeInfo(title,authors,description,imageLinks,publishedDate))`;  
     return this.http.get(apiUrl);
   }
 
